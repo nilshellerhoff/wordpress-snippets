@@ -19,9 +19,4 @@
 
 include('snip_install.php');
 include('snip_shortcodes.php');
-
-// On activation, call snip_install
-register_activation_hook(__FILE__, 'snip_activation_hook');
-function snip_activation_hook() {
-    snip_install();
-}
+include('admin/snip_admin.php');

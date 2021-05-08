@@ -1,7 +1,8 @@
 <?php defined( 'ABSPATH' ) or die('');
 
-function snip_install() {
-    // this function contains all the install jobs and is called upon activation
+// On activation, call install jobs
+register_activation_hook(__FILE__, 'snip_activation_hook');
+function snip_activation_hook() {
     snip_install_db();
     snip_install_sample_data();
 }
