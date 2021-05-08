@@ -17,9 +17,6 @@
                 <td style="padding: 5px"><input type="text" name="description" value="<?= $description ?>" style="width: 500px;"></td>
             </tr>
             </table>
-    <input type="submit" value="Submit!">
-    </form>
-
     <br>
     <textarea name="code" form="form-<?= $id ?>" id="code-<?= $id ?>"><?= $code ?></textarea>
     <script>
@@ -43,6 +40,12 @@
     .CodeMirror {
         border: 1px solid #ddd;
     }
+    .CodeMirror-hints {
+        z-index: 100060 !important;
+    }
     </style>
     <br>
+    <input class="button-primary" style="float: right;" type="submit" value="Submit!">
+    </form>
+
 </div>
