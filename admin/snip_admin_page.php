@@ -2,7 +2,7 @@
 
 global $wpdb;
 $snippets = $wpdb->get_results("
-    SELECT s_name, s_code
+    SELECT *
     FROM " . $wpdb->prefix . "snip_shortcodes
 ");
 ?>
@@ -20,7 +20,7 @@ $snippets = $wpdb->get_results("
     <?php foreach ($snippets as $snip): ?>
     <tr>
 		<td class="row-title"><label for="tablecell"><?=$snip->s_name?></label></td>
-		<td><?=htmlentities($snip->s_code)?></td>
+		<td><?=htmlentities($snip->s_description)?></td>
 	</tr>
     <?php endforeach; ?>
 	</tfoot>
