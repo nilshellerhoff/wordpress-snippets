@@ -18,7 +18,7 @@ function snip_shortcode($atts = array()) {
             return "Snippet \"" . $name . "\" does not exist.";
         } else {
             ob_start();
-            eval(' ?>'. $code);
+            eval(' ?>'. stripslashes($code));
             return ob_get_clean();
         }
     }

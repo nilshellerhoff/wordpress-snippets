@@ -20,6 +20,7 @@
 include('snip_install.php');
 include('snip_shortcodes.php');
 include('admin/snip_admin.php');
+include('admin/snip_admin_actions.php');
 
 // On activation, call install jobs
 register_activation_hook(__FILE__, 'snip_activation_hook');
