@@ -8,7 +8,7 @@ function snip_shortcode($atts = array()) {
         global $wpdb;
 
         $name = $atts["snipname"];
-        $code = $wpdb->get_row("
+        $code = $wpdb->get_var("
             SELECT s_code 
             FROM " . $wpdb->prefix . "snip_shortcodes
             WHERE s_name = '" . $name . "'
@@ -18,7 +18,7 @@ function snip_shortcode($atts = array()) {
             return "Snippet \"" . $name . "\" does not exist.";
         } else {
             ob_start();
-            eval(' ?>'. $code->s_code);
+            eval(' ?>'. $code);
             return ob_get_clean();
         }
     }
