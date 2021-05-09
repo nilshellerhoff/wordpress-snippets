@@ -1,7 +1,7 @@
 <?php defined( 'ABSPATH' ) or die('');
 
 add_shortcode('snip', 'snip_shortcode');
-function snip_shortcode($atts = array()) {
+function snip_shortcode($atts = array(), $content = null) {
     if (!isset($atts["snipname"])) {
         return "Usage [snip snipname=\"name of snippet\"]";
     } else {
@@ -18,7 +18,8 @@ function snip_shortcode($atts = array()) {
             return "Snippet \"" . $name . "\" does not exist.";
         } else {
             ob_start();
-            eval(' ?>'. stripslashes($code));
+            eval(" ?>" . stripslashes($code));
+
             return ob_get_clean();
         }
     }
