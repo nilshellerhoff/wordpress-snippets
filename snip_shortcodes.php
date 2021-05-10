@@ -3,6 +3,7 @@
 add_shortcode('snip', 'snip_shortcode');
 function snip_shortcode($atts = array(), $content = null) {
     if (!isset($atts["snipname"])) {
+        // if snipname is not set as a parameter
         return "Usage [snip snipname=\"name of snippet\"]";
     } else {
         global $wpdb;
@@ -15,12 +16,13 @@ function snip_shortcode($atts = array(), $content = null) {
         ");
 
         if (!isset($code)) {
+            // if no DB entry exists, snippet does not exist
             return "Snippet \"" . $name . "\" does not exist.";
         } else {
             ob_start();
             eval(" ?>" . stripslashes($code));
-
-            return ob_get_clean();
+            $html = ob_get_clean();
+            return do_shortcode($html);
         }
     }
 }
