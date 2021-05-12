@@ -6,6 +6,16 @@ $snippets = $wpdb->get_results("
     FROM " . $wpdb->prefix . "snip_shortcodes
 ");
 
+// add a shortcode for each snippet
+foreach ($snippets as $snip) {
+    // if $content is found in the snippet, it is an enclosing shortcode
+    if (preg_match('/\$content/', $snip->s_code)) {
+        $snip->shortcode = '[snip snipname="' . $snip->s_name . '"] <<<put content here>>> [/snip]';
+    } else {
+        $snip->shortcode = '[snip snipname="' . $snip->s_name . '" /]';
+    }
+}
+
 add_thickbox();
 $edit_url = $_SERVER['REQUEST_URI'] . "&popup=edit-snippet&id=";
 ?>
@@ -44,9 +54,9 @@ $edit_url = $_SERVER['REQUEST_URI'] . "&popup=edit-snippet&id=";
 	<tbody>
     <?php foreach ($snippets as $snip): ?>
     <tr>
-		<td><?=htmlentities($snip->s_name)?></td>
-		<td><?=htmlentities($snip->s_description)?></td>
-		<td>[snip snipname=<?=htmlentities($snip->s_name)?>]</td>
+		<td><?= htmlentities($snip->s_name) ?></td>
+		<td><?= htmlentities($snip->s_description) ?></td>
+		<td><?= htmlentities($snip->shortcode) ?></td>
         <td><a href="#TB_inline?&width=1000&height=530&inlineId=edit-snippet-<?= $snip->id_shortcode ?>" class="thickbox">edit</a></td>
         <script>
             document.currentScript.parentElement.querySelector('a').href = modal_link + "edit-snippet-<?= $snip->id_shortcode ?>";
@@ -68,6 +78,11 @@ $edit_url = $_SERVER['REQUEST_URI'] . "&popup=edit-snippet&id=";
 <?php
 $id = "new-snippet";
 $title = "Create new snippet";
+$name = "";
+$description = "";
+$code = "";
+$id_shortcode = "";
+$scoped_css = 1;
 include('snip_admin_edit_popup.php');
 ?>
 
@@ -80,6 +95,7 @@ foreach ($snippets as $snip) {
     $description = $snip->s_description;
     $code = stripslashes($snip->s_code);
     $id_shortcode = $snip->id_shortcode;
+    $scoped_css = $snip->b_scopedcss;
     include('snip_admin_edit_popup.php');
 }
 ?>

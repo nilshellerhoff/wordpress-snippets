@@ -11,6 +11,7 @@ function snip_action_add_snippet() {
             's_name' => $_POST['name'],
             's_description' => $_POST['description'],
             's_code' => $_POST['code'],
+            'b_scopedcss' => $_POST['scoped_css'] ?? 0
             )
     );
 
@@ -31,7 +32,8 @@ function snip_action_edit_snippet() {
         array(
             's_name' => $_POST['name'],
             's_description' => $_POST['description'],
-            's_code' => $_POST['code']
+            's_code' => $_POST['code'],
+            'b_scopedcss' => $_POST['scoped_css'] ?? 0
         ),
         array(
             'id_shortcode' => $_POST['id_shortcode']

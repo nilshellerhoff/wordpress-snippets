@@ -12,6 +12,7 @@ function snip_install_db() {
             s_name VARCHAR(65535),
             s_description VARCHAR(65535),
             s_code VARCHAR(65535),
+            b_scopedcss INT(1),
             PRIMARY KEY (id_shortcode)
         ) $charset_collate;
     ";
@@ -30,7 +31,8 @@ function snip_install_sample_data() {
             "s_code" => '
                 <?php $name = wp_get_current_user()->user_login ?? "stranger";?>
                 <b>Hello <?php echo($name); ?>!</b>
-            '
+            ',
+            "b_scopedcss" => 1
         )
     );
 }

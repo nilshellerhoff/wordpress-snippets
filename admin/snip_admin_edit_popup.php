@@ -44,6 +44,10 @@
         z-index: 100060 !important;
     }
     </style>
+    
+    <br>
+    <label><input name="scoped_css" type="checkbox" value="1" <?= ($scoped_css) ? "checked" : "" ?>>Scope CSS?</label>
+    
     <br>
     <input class="button-primary" style="float: right;" type="submit" value="Submit!">
     </form>
