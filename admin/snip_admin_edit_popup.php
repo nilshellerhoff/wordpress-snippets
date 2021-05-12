@@ -46,7 +46,7 @@
     </style>
     
     <br>
-    <label><input name="scoped_css" type="checkbox" value="1" <?= ($scoped_css) ? "checked" : "" ?>>Scope CSS?</label>
+    <label><input name="scoped_css" type="checkbox" value="1" <?= ($scoped_css) ? "checked" : "" ?>>Scope CSS? (this will make sure, CSS code in the snippet only applies to the snippet itself)</label>
     
     <br>
     <input class="button-primary" style="float: right;" type="submit" value="Submit!">
