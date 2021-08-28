@@ -46,3 +46,21 @@ function snip_action_edit_snippet() {
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 }
+
+add_action('admin_post_snip-delete-snippet', 'snip_action_delete_snippet');
+function snip_action_delete_snippet() {
+    global $wpdb;
+    
+    $wpdb->delete(
+        $wpdb->prefix . 'snip_shortcodes',
+        array(
+            'id_shortcode' => $_POST['id_shortcode']
+        )
+    );
+
+    if ( isset($_POST["redirectto"]) ) {
+        header('Location: ' . $_POST["redirectto"]);
+    } else {
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
+}

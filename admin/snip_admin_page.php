@@ -49,6 +49,7 @@ $edit_url = $_SERVER['REQUEST_URI'] . "&popup=edit-snippet&id=";
 		<th><b>Description</b></th>
 		<th><b>Shortcode</b></th>
 		<th></th>
+        <th></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -61,6 +62,14 @@ $edit_url = $_SERVER['REQUEST_URI'] . "&popup=edit-snippet&id=";
         <script>
             document.currentScript.parentElement.querySelector('a').href = modal_link + "edit-snippet-<?= $snip->id_shortcode ?>";
         </script>
+        <!-- delete link (has to be form, because POST) -->
+        <td>
+            <form name="delete-shortcode-<?= $snip->id_shortcode ?>" action="admin-post.php" method="post">
+                <input name='action' type="hidden" value='snip-delete-snippet'>
+                <input type="hidden" name="id_shortcode" value="<?= $snip->id_shortcode ?>"/>
+                <a href="#" style="color: #dc3232" onclick='document.querySelector("[name=delete-shortcode-<?= $snip->id_shortcode?>]").submit()'>delete</a>
+            </form>
+        </td>
 	</tr>
     <?php endforeach; ?>
 	</tbody>
