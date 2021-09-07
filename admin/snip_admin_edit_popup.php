@@ -1,6 +1,6 @@
 <div id="<?= $id ?>" style="display:none;">
     <h3><?= $title ?></h3>
-    <form method="post" action="admin-post.php" id="form-<?= $id ?>">
+    <form method="post" action="admin-post.php" id="form-<?= $id ?>" style="height: calc(100% - 60px)">
         <?php if (isset($id_shortcode)): // we are creating a new shortcode ?>
         <input name='action' type="hidden" value='snip-edit-snippet'>
         <input name='id_shortcode' type="hidden" value="<?= $id_shortcode ?>">
@@ -39,7 +39,7 @@
     <style>
     .CodeMirror {
         border: 1px solid #ddd;
-        height: auto;
+        height: calc(100% - 160px);
         margin: -10px 0px;
     }
     .CodeMirror-hints {
