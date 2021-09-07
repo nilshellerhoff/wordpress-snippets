@@ -26,8 +26,8 @@ $edit_url = $_SERVER['REQUEST_URI'] . "&popup=edit-snippet&id=";
 
 <!-- width & height of modal -->
 <script>
-    var snip_modal_width = Math.min(window.innerWidth - 50, 1200);
-    var snip_modal_height = Math.min(window.innerHeight - 200, 1000);
+    var snip_modal_width = Math.max(Math.min(window.innerWidth - 50, 1200), 400);
+    var snip_modal_height = Math.max(Math.min(window.innerHeight - 200, 1000), 500);
     var modal_link = "#TB_inline?&width=" + snip_modal_width + "&height=" + snip_modal_height + "&inlineId=";
 </script>
 
