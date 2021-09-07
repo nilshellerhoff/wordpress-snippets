@@ -1,5 +1,12 @@
 <?php defined( 'ABSPATH' ) or die('');
 
+// load style-scoped https://www.npmjs.com/package/style-scoped/v/0.2.2
+add_action('wp_enqueue_scripts', 'load_style_scoped');
+function load_style_scoped() {
+  wp_enqueue_script('style-scoped', '//cdn.jsdelivr.net/npm/style-scoped@0.2.2/scoped.min.js', array(), '3', true);
+}
+
+
 add_shortcode('snip', 'snip_shortcode');
 function snip_shortcode($atts = array(), $content = null) {
     if (!isset($atts["snipname"])) {
@@ -40,14 +47,6 @@ function snip_shortcode($atts = array(), $content = null) {
 }
 
 function scope_css($html) {
-    // 1. generate custom random id
-    // 2. for all css statements in $html modify selector to include custom id
-    // 3. add a span tag around $html with custom id
-    $custid = substr( str_shuffle( str_repeat( 'abcdefghijklmnopqrstuvwxyz', 10 ) ), 0, 7 );
-
-    // match all selectors: ends with 
-    $html = preg_replace("/(<style>)(.*)([a-zA-Z0-9\.\#\*\>\+\~\-\=\|\$\:]+)([\n\r\t ]*)(,|{)(.*)(<\/style>)/", "$1 $2 #$custid $3 $4 $5 $6 $7", $html);
-
-    $html = "<div id=\"$custid\">" . $html . "</div>";
+    $html = '<div>' . preg_replace('/<style>/', '<style scoped>', $html) . '</div>';
     return $html;
 }
