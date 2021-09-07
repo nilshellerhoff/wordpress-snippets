@@ -1,6 +1,6 @@
 <div id="<?= $id ?>" style="display:none;">
     <h3><?= $title ?></h3>
-    <form method="post" action="admin-post.php" id="form-<?= $id ?>" style="height: calc(100% - 60px)">
+    <form method="post" action="admin-post.php" id="form-<?= $id ?>" style="height: calc(100% - 170px)">
         <?php if (isset($id_shortcode)): // we are creating a new shortcode ?>
         <input name='action' type="hidden" value='snip-edit-snippet'>
         <input name='id_shortcode' type="hidden" value="<?= $id_shortcode ?>">
@@ -18,6 +18,12 @@
             </tr>
             </table>
     <br>
+    <!-- hints -->
+    <div class="notice notice-info inline" style="margin-top: -15px">
+        You can use <code>$args</code> to get the arguments and <code>$content</code> to get the content of the snippet.
+        E.g. if the snippet is called with <code style="white-space: nowrap">[snip snipname="snipname" name="John Doe"]Worldfamous[/snip]</code>,
+        <code>$args['name']</code> will be <code>John Doe</code> and <code>$content</code> will be <code>Worldfamous</code>.
+    </div>
     <textarea name="code" form="form-<?= $id ?>" id="code-<?= $id ?>"><?= $code ?></textarea>
     <script>
         var editorSettings = wp.codeEditor.defaultSettings ? _.clone( wp.codeEditor.defaultSettings ) : {};
@@ -39,8 +45,8 @@
     <style>
     .CodeMirror {
         border: 1px solid #ddd;
-        height: calc(100% - 160px);
-        margin: -10px 0px;
+        height: calc(100% - 110px);
+        margin: 10px -10px -10px -10px;
     }
     .CodeMirror-hints {
         z-index: 100060 !important;
