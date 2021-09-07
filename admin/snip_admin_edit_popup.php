@@ -39,6 +39,8 @@
     <style>
     .CodeMirror {
         border: 1px solid #ddd;
+        height: auto;
+        margin: -10px 0px;
     }
     .CodeMirror-hints {
         z-index: 100060 !important;
