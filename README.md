@@ -6,4 +6,4 @@ Add HTML, JS, CSS or PHP snippets to your Wordpress page
 - [x] shortcode with $atts
 - [x] settings on own page
 - [x] add delete button
-- [ ] make CSS scoped
+- [x] make CSS scoped
