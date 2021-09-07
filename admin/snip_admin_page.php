@@ -90,7 +90,6 @@ $title = "Create new snippet";
 $name = "";
 $description = "";
 $code = "";
-$id_shortcode = "";
 $scoped_css = 1;
 include('snip_admin_edit_popup.php');
 ?>
