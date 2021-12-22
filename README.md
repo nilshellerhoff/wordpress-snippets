@@ -1,5 +1,5 @@
 # Wordpress Snippets
-Add HTML, JS, CSS or PHP snippets to your Wordpress page
+A Wordpress Plugin which allows you to add HTML, JS, CSS or PHP snippets to your page
 
 ### ToDo
 - [x] show shortcode on settings page
