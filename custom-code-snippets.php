@@ -2,10 +2,10 @@
 /**
  * @link              http://github.com/nilshellerhoff/wordpress-snippets
  * @since             0.1.0
- * @package           Wordpress Snippets
+ * @package           Custom Code Snippets
  *
  * @wordpress-plugin
- * Plugin Name:       Wordpress Snippets
+ * Plugin Name:       Custom Code Snippets
  * Plugin URI:        http://github.com/nilshellerhoff/wordpress-snippets
  * Description:       Add HTML, CSS, JS and PHP snippets to your content via shortcodes.
  * Version:           0.1.0
@@ -13,7 +13,7 @@
  * Author URI:        http://nils-hellerhoff.de
  * License:           GPL-3.0
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
- * Text Domain:       snipo
+ * Text Domain:       snip
  * Domain Path:       /languages
  */
 

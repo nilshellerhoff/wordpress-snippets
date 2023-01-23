@@ -22,7 +22,7 @@ $edit_url = $_SERVER['REQUEST_URI'] . "&popup=edit-snippet&id=";
 
 <br class="clear" />
 
-<h1>Wordpress Snippets</h1>
+<h1>Custom Code Snippets</h1>
 
 <!-- width & height of modal -->
 <script>
