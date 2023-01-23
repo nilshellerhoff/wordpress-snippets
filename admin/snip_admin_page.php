@@ -78,6 +78,7 @@ $edit_url = $_SERVER['REQUEST_URI'] . "&popup=edit-snippet&id=";
 		<th><b>Description</b></th>
 		<th><b>Shortcode</b></th>
 		<th></th>
+        <th></th>
 	</tr>
 	</tfoot>
 </table> 
